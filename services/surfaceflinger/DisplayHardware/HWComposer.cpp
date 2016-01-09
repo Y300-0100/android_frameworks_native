@@ -1234,13 +1234,18 @@ public:
         //getLayer()->compositionType = HWC_FRAMEBUFFER;
     }
     virtual void setPlaneAlpha(uint8_t alpha) {
-        if (hwcHasApiVersion(mHwc, HWC_DEVICE_API_VERSION_1_2)) {
-            getLayer()->planeAlpha = alpha;
-        } else {
-            if (alpha < 0xFF) {
-                getLayer()->flags |= HWC_SKIP_LAYER;
-            }
-        }
+// SCX15_HWC does not respect planeAlpha despite being v1.2
+#ifndef SCX15_HWC
+         if (hwcHasApiVersion(mHwc, HWC_DEVICE_API_VERSION_1_2)) {
+             getLayer()->planeAlpha = alpha;
+         } else {
+#endif
+             if (alpha < 0xFF) {
+                 getLayer()->flags |= HWC_SKIP_LAYER;
+             }
+#ifndef SCX15_HWC
+         }
+#endif
     }
     virtual void setDefaultState() {
         hwc_layer_1_t* const l = getLayer();
