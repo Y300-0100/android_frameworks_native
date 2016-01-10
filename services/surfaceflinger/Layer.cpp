@@ -1261,7 +1261,7 @@ uint32_t Layer::getEffectiveUsage(uint32_t usage) const
 void Layer::updateTransformHint(const sp<const DisplayDevice>& hw) {
     uint32_t orientation = 0;
 // SCX15_HWC has display problem in landscape mode when transform is used
-#ifndef SCX15_HWC
+//#ifndef SCX15_HWC
     if (!mFlinger->mDebugDisableTransformHint) {
         // The transform hint is used to improve performance, but we can
         // only have a single transform hint, it cannot
@@ -1272,7 +1272,7 @@ void Layer::updateTransformHint(const sp<const DisplayDevice>& hw) {
             orientation = 0;
         }
     }
-#endif
+//#endif
     mSurfaceFlingerConsumer->setTransformHint(orientation);
     mTransformHint = orientation;
 }

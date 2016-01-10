@@ -1235,17 +1235,17 @@ public:
     }
     virtual void setPlaneAlpha(uint8_t alpha) {
 // SCX15_HWC does not respect planeAlpha despite being v1.2
-#ifndef SCX15_HWC
+//#ifndef SCX15_HWC
          if (hwcHasApiVersion(mHwc, HWC_DEVICE_API_VERSION_1_2)) {
              getLayer()->planeAlpha = alpha;
          } else {
-#endif
+//#endif
              if (alpha < 0xFF) {
                  getLayer()->flags |= HWC_SKIP_LAYER;
              }
-#ifndef SCX15_HWC
+//#ifndef SCX15_HWC
          }
-#endif
+//#endif
     }
     virtual void setDefaultState() {
         hwc_layer_1_t* const l = getLayer();
