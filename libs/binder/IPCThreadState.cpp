@@ -1130,9 +1130,15 @@ status_t IPCThreadState::executeCommand(int32_t cmd)
     case BR_SPAWN_LOOPER:
         mProcess->spawnPooledThread(false);
         break;
-        
+
+    //For Bug#305183, to deal with BR_TRANSACTION_COMPLETE cmd
+    case BR_TRANSACTION_COMPLETE:
+        ALOGE("*** BAD COMMAND: BR_TRANSACTION_COMPLETE(%x) for executeCommand from Binder driver\n", cmd);
+        break;
+
     default:
         printf("*** BAD COMMAND %d received from Binder driver\n", cmd);
+        ALOGE("*** BAD COMMAND %x received from Binder driver\n", cmd);
         result = UNKNOWN_ERROR;
         break;
     }

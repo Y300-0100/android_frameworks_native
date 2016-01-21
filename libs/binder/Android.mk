@@ -26,7 +26,7 @@ sources := 			\
     IPCThreadState.cpp 		\
     IPermissionController.cpp 	\
     IServiceManager.cpp 	\
-    MemoryDealer.cpp		\
+    MemoryDealer.cpp 		\
     MemoryBase.cpp 		\
     MemoryHeapBase.cpp 		\
     MemoryHeapIon.cpp 		\
@@ -53,9 +53,8 @@ endif
 LOCAL_LDLIBS += -lpthread
 LOCAL_MODULE := libbinder
 LOCAL_SHARED_LIBRARIES += liblog libcutils libutils
-LOCAL_C_INCLUDES += 							\
-	$(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include/video/ 	\
-	$(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/
+LOCAL_ADDITIONAL_DEPENDENCIES := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
+LOCAL_C_INCLUDES += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
 LOCAL_SRC_FILES := $(sources)
 include $(BUILD_SHARED_LIBRARY)
 
@@ -64,7 +63,6 @@ LOCAL_LDLIBS += -lpthread
 LOCAL_MODULE := libbinder
 LOCAL_STATIC_LIBRARIES += libutils
 LOCAL_SRC_FILES := $(sources)
-LOCAL_C_INCLUDES += 							\
-    $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include/video/ 	\
-    $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/
+LOCAL_ADDITIONAL_DEPENDENCIES := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
+LOCAL_C_INCLUDES += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
 include $(BUILD_STATIC_LIBRARY)
