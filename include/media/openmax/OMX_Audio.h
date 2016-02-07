@@ -135,6 +135,9 @@ typedef enum OMX_AUDIO_CODINGTYPE {
     OMX_AUDIO_CodingAC3,         /**< Any variant of AC3 encoded data */
     OMX_AUDIO_CodingAPE,         /**< Any variant of APE encoded data */
     OMX_AUDIO_CodingDTS,         /**< Any variant of DTS encoded data */
+#ifdef SPRD_HARDWARE
+    OMX_AUDIO_CodingIMAADPCM,    /**< Any variant of IMAADPCM encoded data */
+#endif
     OMX_AUDIO_CodingFFMPEG,      /**< Any variant of FFMPEG encoded data */
     OMX_AUDIO_CodingMax = 0x7FFFFFFF
 } OMX_AUDIO_CODINGTYPE;
@@ -572,6 +575,23 @@ typedef struct OMX_AUDIO_PARAM_ADPCMTYPE {
                                     variable or unknown sampling rate. */ 
 } OMX_AUDIO_PARAM_ADPCMTYPE; 
 
+
+#ifdef SPRD_HARDWARE
+/** IMAADPCM stream format parameters */
+typedef struct OMX_AUDIO_PARAM_IMAADPCMTYPE {
+    OMX_U32 nSize;              /**< size of the structure in bytes */
+    OMX_VERSIONTYPE nVersion;   /**< OMX specification version information */
+    OMX_U32 nPortIndex;         /**< port that this structure applies to */
+    OMX_U32 nChannels;          /**< Number of channels in the data stream (not
+                                     necessarily the same as the number of channels
+                                     to be rendered. */
+    OMX_U32 nBitsPerSample;     /**< Number of bits in each sample */
+    OMX_U32 nSampleRate;        /**< Sampling rate of the source data.  Use 0 for
+                                    variable or unknown sampling rate. */
+    OMX_U32 nBlockAlign;        /**< Sampling rate of the source data.	Use 0 for
+                                    variable or unknown sampling rate. */
+} OMX_AUDIO_PARAM_IMAADPCMTYPE;
+#endif
 
 /** G723 rate */
 typedef enum OMX_AUDIO_G723RATE {
