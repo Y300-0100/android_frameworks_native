@@ -134,6 +134,10 @@ typedef enum OMX_INDEXTYPE {
     OMX_IndexParamAudioSmv,                 /**< reference: OMX_AUDIO_PARAM_SMVTYPE */
     OMX_IndexParamAudioVorbis,              /**< reference: OMX_AUDIO_PARAM_VORBISTYPE */
     OMX_IndexParamAudioFlac,                /**< reference: OMX_AUDIO_PARAM_FLACTYPE */
+#ifdef MTK_HARDWARE
+    OMX_IndexParamAudioRaw,
+    OMX_IndexParamAudioWmaProfile,
+#endif
 
     OMX_IndexConfigAudioMidiImmediateEvent, /**< reference: OMX_AUDIO_CONFIG_MIDIIMMEDIATEEVENTTYPE */
     OMX_IndexConfigAudioMidiControl,        /**< reference: OMX_AUDIO_CONFIG_MIDICONTROLTYPE */
@@ -261,6 +265,42 @@ typedef enum OMX_INDEXTYPE {
        to 0x7FFFFFFE.  This range is not broken out by vendor, so
        private indexes are not guaranteed unique and therefore should
        only be sent to the appropriate component. */
+
+#ifdef SPRD_HARDWARE
+    /* for Android Native Window */
+#define SPRD_INDEX_PARAM_ENABLE_ANB "OMX.google.android.index.enableAndroidNativeBuffers"
+    OMX_IndexParamEnableAndroidBuffers         = 0x7F000011,
+#define SPRD_INDEX_PARAM_GET_ANB "OMX.google.android.index.getAndroidNativeBufferUsage"
+    OMX_IndexParamGetAndroidNativeBuffer       = 0x7F000012,
+#define SPRD_INDEX_PARAM_USE_ANB "OMX.google.android.index.useAndroidNativeBuffer2"
+    OMX_IndexParamUseAndroidNativeBuffer2      = 0x7F000013,
+    /* for Android Store Metadata Inbuffer */
+#define SPRD_INDEX_PARAM_STORE_METADATA_BUFFER "OMX.google.android.index.storeMetaDataInBuffers"
+    OMX_IndexParamStoreMetaDataBuffer          = 0x7F000014,
+#define SPRD_INDEX_PARAM_PREPEND_SPSPPS_TO_IDR "OMX.google.android.index.prependSPSPPSToIDRFrames"
+    OMX_IndexParamPrependSPSPPSToIDR           = 0x7F000015,
+#define SPRD_INDEX_CONFIG_THUMBNAIL_MODE "OMX.sprd.index.ThumbnailMode"
+    OMX_IndexConfigThumbnailMode               = 0x7F000016,
+
+    OMX_IndexParamAudioImaAdpcm = 0x7FA7B09C,/**< reference: OMX_AUDIO_PARAM_IMAADPCMTYPE */
+#endif
+
+#ifdef MTK_HARDWARE
+    OMX_IndexVendorMtkOmxVdecTimeSource        = 0x7F000001,
+    OMX_IndexVendorMtkOmxVdecThumbnailMode     = 0x7F00000A,
+    OMX_IndexVendorMtkOmxVdecGetAspectRatio    = 0x7F000018,
+    OMX_IndexVendorMtkOmxVdecGetCropInfo       = 0x7F000019,
+    OMX_IndexVendorMtkOmxVideoSetClientLocally = 0x7f000020,
+#endif
+
+    OMX_IndexParamAudioMp2,                 /**< reference: OMX_AUDIO_PARAM_MP2TYPE */
+    OMX_IndexParamAudioAc3,                 /**< reference: OMX_AUDIO_PARAM_AC3TYPE */
+#ifndef MTK_HARDWARE
+    OMX_IndexParamAudioApe,                 /**< reference: OMX_AUDIO_PARAM_APETYPE */
+#endif
+    OMX_IndexParamAudioDts,                 /**< reference: OMX_AUDIO_PARAM_DTSTYPE */
+    OMX_IndexParamVideoFFmpeg,              /**< reference: OMX_VIDEO_PARAM_FFMPEGTYPE */
+    OMX_IndexParamAudioFFmpeg,              /**< reference: OMX_AUDIO_PARAM_FFMPEGTYPE */
 
     OMX_IndexMax = 0x7FFFFFFF
 
