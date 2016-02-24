@@ -282,25 +282,8 @@ typedef enum OMX_INDEXTYPE {
 #define SPRD_INDEX_CONFIG_THUMBNAIL_MODE "OMX.sprd.index.ThumbnailMode"
     OMX_IndexConfigThumbnailMode               = 0x7F000016,
 
-    OMX_IndexParamAudioImaAdpcm = 0x7FA7B09C,/**< reference: OMX_AUDIO_PARAM_IMAADPCMTYPE */
+    OMX_IndexParamAudioImaAdpcm = 0x7FA7B09C,  /**< reference: OMX_AUDIO_PARAM_IMAADPCMTYPE */
 #endif
-
-#ifdef MTK_HARDWARE
-    OMX_IndexVendorMtkOmxVdecTimeSource        = 0x7F000001,
-    OMX_IndexVendorMtkOmxVdecThumbnailMode     = 0x7F00000A,
-    OMX_IndexVendorMtkOmxVdecGetAspectRatio    = 0x7F000018,
-    OMX_IndexVendorMtkOmxVdecGetCropInfo       = 0x7F000019,
-    OMX_IndexVendorMtkOmxVideoSetClientLocally = 0x7f000020,
-#endif
-
-    OMX_IndexParamAudioMp2,                 /**< reference: OMX_AUDIO_PARAM_MP2TYPE */
-    OMX_IndexParamAudioAc3,                 /**< reference: OMX_AUDIO_PARAM_AC3TYPE */
-#ifndef MTK_HARDWARE
-    OMX_IndexParamAudioApe,                 /**< reference: OMX_AUDIO_PARAM_APETYPE */
-#endif
-    OMX_IndexParamAudioDts,                 /**< reference: OMX_AUDIO_PARAM_DTSTYPE */
-    OMX_IndexParamVideoFFmpeg,              /**< reference: OMX_VIDEO_PARAM_FFMPEGTYPE */
-    OMX_IndexParamAudioFFmpeg,              /**< reference: OMX_AUDIO_PARAM_FFMPEGTYPE */
 
     OMX_IndexMax = 0x7FFFFFFF
 

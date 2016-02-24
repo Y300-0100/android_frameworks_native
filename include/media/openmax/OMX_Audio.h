@@ -130,14 +130,9 @@ typedef enum OMX_AUDIO_CODINGTYPE {
 #endif // DOLBY_END
     OMX_AUDIO_CodingKhronosExtensions = 0x6F000000, /**< Reserved region for introducing Khronos Standard Extensions */ 
     OMX_AUDIO_CodingVendorStartUnused = 0x7F000000, /**< Reserved region for introducing Vendor Extensions */
-    OMX_AUDIO_CodingMP2,         /**< Any variant of MP2 encoded data */
-    OMX_AUDIO_CodingAC3,         /**< Any variant of AC3 encoded data */
-    OMX_AUDIO_CodingAPE,         /**< Any variant of APE encoded data */
-    OMX_AUDIO_CodingDTS,         /**< Any variant of DTS encoded data */
 #ifdef SPRD_HARDWARE
     OMX_AUDIO_CodingIMAADPCM,    /**< Any variant of IMAADPCM encoded data */
 #endif
-    OMX_AUDIO_CodingFFMPEG,      /**< Any variant of FFMPEG encoded data */
     OMX_AUDIO_CodingMax = 0x7FFFFFFF
 } OMX_AUDIO_CODINGTYPE;
 
@@ -382,7 +377,6 @@ typedef struct OMX_AUDIO_PARAM_FLACTYPE {
     OMX_U32 nCompressionLevel;/**< FLAC compression level, from 0 (fastest compression)
                                    to 8 (highest compression */
 } OMX_AUDIO_PARAM_FLACTYPE;
-
 
 /** WMA Version */
 typedef enum OMX_AUDIO_WMAFORMATTYPE {
