@@ -130,10 +130,6 @@ status_t GraphicBufferAllocator::alloc(uint32_t w, uint32_t h,
     }
 #endif
 
-#ifdef SPRD_HARDWARE
-    if (format == HAL_PIXEL_FORMAT_YCbCr_420_I)
-        format = HAL_PIXEL_FORMAT_YCbCr_420_SP;
-#endif
     err = mAllocDev->alloc(mAllocDev, w, h, format, usage, handle, stride);
     ALOGW_IF(err, "alloc(%u, %u, %d, %08x, ...) failed %d (%s)",
             w, h, format, usage, err, strerror(-err));
