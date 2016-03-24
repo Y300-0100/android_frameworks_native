@@ -281,8 +281,6 @@ typedef enum OMX_INDEXTYPE {
     OMX_IndexParamPrependSPSPPSToIDR           = 0x7F000015,
 #define SPRD_INDEX_CONFIG_THUMBNAIL_MODE "OMX.sprd.index.ThumbnailMode"
     OMX_IndexConfigThumbnailMode               = 0x7F000016,
-
-    OMX_IndexParamAudioImaAdpcm = 0x7FA7B09C,  /**< reference: OMX_AUDIO_PARAM_IMAADPCMTYPE */
 #endif
 
     OMX_IndexMax = 0x7FFFFFFF
